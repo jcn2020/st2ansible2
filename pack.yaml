@@ -4,14 +4,13 @@ name: sre__ansible_automation
 description: sre__ansible_automation
 
 keywords:
-  - sres
+  - "sres"
 
 version: 0.1.1
 author: author
 email: anyone@anyemail.com
-what: a pack is a pack of course
-who: noone
-where: scm
-when: hope it works ... soon
 
-
+# what: a pack is a pack of course
+# who: noone
+# where: scm
+# when: hope it works ... soon
