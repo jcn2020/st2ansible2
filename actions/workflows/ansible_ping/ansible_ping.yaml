@@ -13,7 +13,7 @@ tasks:
   say_hello:
     action: core.local
     input:
-      cmd: "pwd && cd /home/jnguyen/.ssh && ls -altr"
+      cmd: "pwd && sudo cd /home/jnguyen/.ssh && ls -altr"
     next:
       - when: <% succeeded() %>
         do:
@@ -24,7 +24,7 @@ tasks:
     next: 
       - when: <% succeeded() %> 
         publish:
-          results: <% task(say_hello) %>
+          results: <% task(say_hello).stdout %>
       - when: <% failed() %> 
         publish: 
           results: "Task failed, no output available"
