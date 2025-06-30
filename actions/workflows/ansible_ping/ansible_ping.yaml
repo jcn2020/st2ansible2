@@ -7,7 +7,7 @@ input:
   - inventory_file
 
 output:
-  - results
+  - results: nil
 
 tasks:
   say_hello:
@@ -24,7 +24,7 @@ tasks:
     next: 
       - when: <% succeeded() %> 
         publish:
-          results: <% task(say_hello).stdout %>
+          results: <% task(say_hello).result %>
       - when: <% failed() %> 
         publish: 
           results: "Task failed, no output available"
