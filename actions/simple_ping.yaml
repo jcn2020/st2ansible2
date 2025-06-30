@@ -2,7 +2,7 @@
 name: ansible_ping
 pack: sre__ansible_automation
 description: quick check on ping
-runner_type: orchestra
+runner_type: orquesta
 entry_point: workflows/ansible_ping/ansible_ping.yaml
 enabled: true
 parameters:
