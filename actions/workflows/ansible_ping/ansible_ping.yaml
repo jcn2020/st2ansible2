@@ -6,12 +6,21 @@ input:
   - private_keypath
   - inventory_file
 
+vars: 
+  - final
+
+out:
+  - results
+
 tasks:
   say_hello:
     action: core.local
     input:
       cmd: >
-        pwd
-        ls -altr
+        pwd && cd /home/jnguyen/.ssh && ls -altr
+    next:
+      - when: <% succeeded() %> 
+        publish:
+          - results: <% task(say_hello).stdout %>
         
 
