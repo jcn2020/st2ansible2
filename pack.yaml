@@ -1,0 +1,11 @@
+---
+ref: sre__ansible_automation
+name: sre__ansible_automation
+description: sre__ansible_automation
+
+keywords:
+  - sres
+
+version: 0.1.1
+author: author
+

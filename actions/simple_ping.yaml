@@ -1,0 +1,18 @@
+---
+name: ansible_ping
+pack: sre__ansible_automation
+description: quick check on ping
+runner_type: orchestra
+entry_point: workflows/ansible_ping/ansible_ping.yaml
+enabled: true
+parameters:
+  private_keypath:
+    required: true
+    default: "/home/jnguyen/.ssh/minivm"
+    description: path to private keypath
+    secret: true
+  inventory_file:
+    required: true
+    default: inventory.yaml
+    description: full path to inventory.yaml
+    

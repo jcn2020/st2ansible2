@@ -1,0 +1,15 @@
+---
+version: 1.0
+description: quick demo of ansible
+
+input:
+  - private_keypath
+  - inventory_file
+
+tasks:
+  say_hello:
+    action: core.local
+    input:
+      cmd: >
+        echo 'hello world'
+
