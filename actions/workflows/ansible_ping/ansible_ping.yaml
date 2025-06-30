@@ -24,7 +24,7 @@ tasks:
     next: 
       - when: <% succeeded() %> 
         publish:
-          results: <% task(say_hello).result %>
+          results: <% task(say_hello) %>
       - when: <% failed() %> 
         publish: 
           results: "Task failed, no output available"
