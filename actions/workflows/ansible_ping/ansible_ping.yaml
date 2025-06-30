@@ -6,9 +6,6 @@ input:
   - private_keypath
   - inventory_file
 
-vars: 
-  - final
-
 out:
   - results
 
