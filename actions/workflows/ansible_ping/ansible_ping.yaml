@@ -21,7 +21,15 @@ tasks:
 
   set_results:
     action: core.noop
-    publish:
-      results: <% task(say_hello).stdout %>
+    next: 
+      - when: <% succeeded() %> 
+        publish:
+          results: <% task(say_hello).stdout %>
+      - when: <% failed() %> 
+        publish: 
+          results: "Task failed, no output available"
+
+      
+
 
 
