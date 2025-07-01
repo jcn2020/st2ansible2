@@ -47,6 +47,13 @@ tasks:
       private_key: <% ctx().private_keypath %>
       inventory_file: <% ctx().inventory_file %>
       playbook: "<% ctx().playbook %>"
+      debug: true
+      become: true
+      timeout: 7200 
+    retry: 
+      when: <% failed() %>
+      count: 3
+      delay: 20
     next:
       - when: <% succeeded() %>
         publish:
