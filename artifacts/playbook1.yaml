@@ -1,6 +1,6 @@
 ---
 - name: display ansible facts
-  hosts: all
+  hosts: myhosts
   gather_facts: yes 
   tasks:
     - name: display ansible facts
