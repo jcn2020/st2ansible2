@@ -16,15 +16,20 @@ tasks:
       cmd: "pwd && cd /opt/stackstorm/packs/sre__ansible_automation/artifacts && ls -altr"
     next:
       - when: <% succeeded() %>
+        publish:
+          results: "<% task(say_hello).result.stdout %>"
         do:
           - set_results
+      - when: <% failed() %>
+        publish:
+          results: "that's all folks" 
 
   set_results:
     action: core.noop
     next: 
       - when: <% succeeded() %> 
         publish:
-          results: <% task(say_hello).stdout %>
+          results: "<% task(say_hello).result.stdout %>"
       - when: <% failed() %> 
         publish: 
           results: "Task failed, no output available"
