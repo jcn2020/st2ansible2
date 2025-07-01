@@ -14,6 +14,7 @@ tasks:
     action: core.local
     input:
       cmd: "pwd && cd /opt/stackstorm/packs/sre__ansible_automation/artifacts && ls -altr"
+      cmd: "echo 'hello'"
     next:
       - when: <% succeeded() %>
         publish:
