@@ -11,10 +11,12 @@ parameters:
     default: "/opt/stackstorm/packs/sre__ansible_automation/artifacts/minivm_private"
     description: path to private keypath
     secret: true
+
   inventory_file:
     required: true
-    default: "/opt/"stackstorm/packs/sre__ansible_automation/artifacts/inventory.yaml"
+    default: "/opt/stackstorm/packs/sre__ansible_automation/artifacts/inventory.yaml"
     description: full path to inventory.yaml
+
   playbook:
     required: true
     default: "/opt/stackstorm/packs/sre__ansible_automation/artifacts/playbook1.yaml"
