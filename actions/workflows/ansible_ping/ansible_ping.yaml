@@ -7,10 +7,10 @@ input:
   - inventory_file
 
 vars:
-  - results: nil
+  - results: 'nil'
 
 output:
-  - final: <% ctx(results) %> 
+  - final: <% ctx().results %> 
 
 tasks:
   say_hello:
