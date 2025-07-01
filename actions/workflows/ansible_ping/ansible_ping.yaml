@@ -17,7 +17,8 @@ tasks:
   say_hello:
     action: core.local
     input:
-      cmd: "pwd && cd /opt/stackstorm/packs/sre__ansible_automation/artifacts && ls -altr"
+      cmd: "/opt/stackstorm/virtualenvs/ansible/bin/ansible-playbook --private-key=/opt/stackstorm/packs/sre__ansible_automation/artifacts/minivm_private --inventory-file=/opt/stackstorm/packs/sre__ansible_automation/artifacts/inventory.yaml --become /opt/stackstorm/packs/sre__ansible_automation/artifacts/playbook1.yaml" 
+      # cmd: "pwd && cd /opt/stackstorm/packs/sre__ansible_automation/artifacts && ls -altr"
       # cmd: "echo 'hello'"
     next:
       - when: <% succeeded() %>
