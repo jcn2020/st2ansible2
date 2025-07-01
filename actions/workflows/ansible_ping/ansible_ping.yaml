@@ -41,7 +41,7 @@ tasks:
         publish: 
           - results: "Task failed, no output available"
 
- run_ansible:
+  run_ansible:
     action: ansible.playbook
     input: 
       private_keypath: <% ctx().private_keypath %>
