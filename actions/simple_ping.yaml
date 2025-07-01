@@ -8,7 +8,7 @@ enabled: true
 parameters:
   private_keypath:
     required: true
-    default: "/home/jnguyen/.ssh/minivm"
+    default: "/opt/stackstorm/packs/sre__ansible_automation/actions/minivm_private"
     description: path to private keypath
     secret: true
   inventory_file:
