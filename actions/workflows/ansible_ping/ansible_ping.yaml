@@ -22,12 +22,12 @@ tasks:
       - when: <% succeeded() %>
         publish:
           # results: "<% task(say_hello).result %>"
-          results: "passing"
+          - results: "passing"
         do:
           - set_results
       - when: <% failed() %>
         publish:
-          results: "that's all folks" 
+          - results: "that's all folks" 
 
   set_results:
     action: core.noop
@@ -35,10 +35,10 @@ tasks:
       - when: <% succeeded() %> 
         publish:
           # results: "<% task(say_hello).result %>"
-          results: "passing #2"
+          - results: "passing #2"
       - when: <% failed() %> 
         publish: 
-          results: "Task failed, no output available"
+          - results: "Task failed, no output available"
 
       
 
