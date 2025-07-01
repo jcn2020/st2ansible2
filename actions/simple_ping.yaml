@@ -8,7 +8,7 @@ enabled: true
 parameters:
   private_keypath:
     required: true
-    default: "/opt/stackstorm/packs/sre__ansible_automation/actions/minivm_private"
+    default: "/opt/stackstorm/packs/sre__ansible_automation/artifacts/minivm_private"
     description: path to private keypath
     secret: true
   inventory_file:
