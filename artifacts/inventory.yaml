@@ -2,12 +2,12 @@ myhosts:
   hosts:
     minivm1:
       ansible_host: 20.109.57.208
-      http_port: 80
+      # http_port: 80
     minivm2:
       ansible_host: 20.55.249.55
   vars:
     # ansible_ssh_private_key_file: ./minivm_private
-    ansible_ssh_user: jnguyen
+    # ansible_ssh_user: jnguyen
 
 mywrapper:
   children:
