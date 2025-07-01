@@ -13,6 +13,11 @@ parameters:
     secret: true
   inventory_file:
     required: true
-    default: inventory.yaml
+    default: "/opt/"stackstorm/packs/sre__ansible_automation/artifacts/inventory.yaml"
     description: full path to inventory.yaml
+  playbook:
+    required: true
+    default: "/opt/stackstorm/packs/sre__ansible_automation/artifacts/playbook1.yaml"
+    description: playbook to run
+    secret: false
     

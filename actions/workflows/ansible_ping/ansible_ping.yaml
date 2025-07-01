@@ -5,6 +5,7 @@ description: quick demo of ansible
 input:
   - private_keypath
   - inventory_file
+  - playbook
 
 vars:
   - results: 'nil'
@@ -40,7 +41,19 @@ tasks:
         publish: 
           - results: "Task failed, no output available"
 
-      
+ run_ansible:
+    action: ansible.playbook
+    input: 
+      private_keypath: <% ctx().private_keypath %>
+      inventory_file: <% ctx().inventory_file %>
+      playbook: "<% ctx().playbook %>"
+    next:
+      - when: <% succeeded() %>
+        publish:
+          - results: "<% task(run_ansible).result %>"
+      - when: <% failed() %>
+        publish: 
+          - results: "Task failed, no output available" 
 
 
 
