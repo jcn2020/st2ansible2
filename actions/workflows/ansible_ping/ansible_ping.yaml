@@ -21,8 +21,8 @@ tasks:
     next:
       - when: <% succeeded() %>
         publish:
-          # results: "<% task(say_hello).result %>"
-          - results: "passing"
+          - results: "<% task(say_hello).result %>"
+          # - results: "passing"
         do:
           - set_results
       - when: <% failed() %>
@@ -34,8 +34,8 @@ tasks:
     next: 
       - when: <% succeeded() %> 
         publish:
-          # results: "<% task(say_hello).result %>"
-          - results: "passing #2"
+          - results: "<% task(say_hello).result %>"
+          # - results: "passing #2"
       - when: <% failed() %> 
         publish: 
           - results: "Task failed, no output available"
