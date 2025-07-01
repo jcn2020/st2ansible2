@@ -6,8 +6,11 @@ input:
   - private_keypath
   - inventory_file
 
-output:
+vars:
   - results: nil
+
+output:
+  - final: <% ctx(results) %> 
 
 tasks:
   say_hello:
