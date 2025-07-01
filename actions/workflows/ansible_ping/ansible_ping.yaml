@@ -13,7 +13,7 @@ tasks:
   say_hello:
     action: core.local
     input:
-      cmd: "pwd && sudo cd /home/jnguyen/.ssh && ls -altr"
+      cmd: "pwd && /opt/stackstorm/packs/sre__ansible_automation/artifacts && ls -altr"
     next:
       - when: <% succeeded() %>
         do:
