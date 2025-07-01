@@ -52,8 +52,8 @@ tasks:
       timeout: 7200 
     retry: 
       when: <% failed() %>
-      count: 3
-      delay: 20
+      count: 1
+      delay: 10
     next:
       - when: <% succeeded() %>
         publish:
