@@ -44,7 +44,7 @@ tasks:
   run_ansible:
     action: ansible.playbook
     input: 
-      private_keypath: <% ctx().private_keypath %>
+      private_key: <% ctx().private_keypath %>
       inventory_file: <% ctx().inventory_file %>
       playbook: "<% ctx().playbook %>"
     next:
