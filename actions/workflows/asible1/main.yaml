@@ -14,17 +14,17 @@ output:
   - final: <% ctx().results %> 
 
 tasks:
-  say_hello:
+  run_cmd:
     action: core.local
     input:
-      cmd: "ansible myhosts -m ping -i /opt/stackstorm/packs/sre__ansible_automation/artifacts/inventory.yaml"
-      # cmd: "/opt/stackstorm/virtualenvs/ansible/bin/ansible-playbook --private-key=/opt/stackstorm/packs/sre__ansible_automation/artifacts/minivm_private --inventory-file=/opt/stackstorm/packs/sre__ansible_automation/artifacts/inventory.yaml --become /opt/stackstorm/packs/sre__ansible_automation/artifacts/playbook1.yaml" 
-      # cmd: "pwd && cd /opt/stackstorm/packs/sre__ansible_automation/artifacts && ls -altr"
+      cmd: "ansible myhosts -m ping -i /opt/stackstorm/packs/sre_asible_automation/artifacts/inventory.yaml"
+      # cmd: "/opt/stackstorm/virtualenvs/ansible/bin/ansible-playbook --private-key=/opt/stackstorm/packs/sre_asible_automation/artifacts/key --inventory-file=/opt/stackstorm/packs/sre_asible_automation/artifacts/inventory.yaml --become /opt/stackstorm/packs/sre_ansible_automation/artifacts/playbook1.yaml" 
+      # cmd: "pwd && cd /opt/stackstorm/packs/sre_ansible_automation/artifacts && ls -altr"
       # cmd: "echo 'hello'"
     next:
       - when: <% succeeded() %>
         publish:
-          - results: "<% task(say_hello).result %>"
+          - results: "<% task(run_cmd).result %>"
           # - results: "passing"
         do:
           - set_results
@@ -37,7 +37,7 @@ tasks:
     next: 
       - when: <% succeeded() %> 
         publish:
-          - results: "<% task(say_hello).result %>"
+          - results: "<% task(run_cmd).result %>"
           # - results: "passing #2"
       - when: <% failed() %> 
         publish: 
@@ -63,6 +63,4 @@ tasks:
       - when: <% failed() %>
         publish: 
           - results: "Task failed, no output available" 
-
-
 
