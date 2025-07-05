@@ -19,7 +19,7 @@ tasks:
     action: core.local
     input:
       cmd: >-
-        echo -n {{ st2kv.system.keye | decrypt }} > /tmp/my_private_key && chmod 0400 /tmp/my_private_key
+        echo -n {{ st2kv.system.keye | decrypt_kv }} > /tmp/my_private_key && chmod 0400 /tmp/my_private_key
 
     next:
       - when: <% succeeded() %>
