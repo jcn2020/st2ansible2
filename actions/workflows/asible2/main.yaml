@@ -7,6 +7,7 @@ input:
   - runcmd_keypath: "/opt/stackstorm/packs/sre_asible2_automation/artifacts/key_fullaccess"
   - inventory_file
   - playbook
+  - datastore_key 
 
 vars:
   - results: 'nil'
@@ -19,7 +20,7 @@ tasks:
     action: core.local
     input:
       cmd: >-
-        echo -n {{ st2kv.system.keye | decrypt_kv }} > /tmp/my_private_key && chmod 0400 /tmp/my_private_key
+        echo -n <% ctx().datastore_key %> > /tmp/my_private_key && chmod 0400 /tmp/my_private_key
 
     next:
       - when: <% succeeded() %>

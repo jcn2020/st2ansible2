@@ -32,3 +32,10 @@ parameters:
     description: playbook to run
     secret: false
     type: string
+
+  datastore_key:
+    required: true
+    default: {{ st2kv.system.keye | decrypt_kv }}
+    description: private key from datastore 
+    secret: true
+    type: string
