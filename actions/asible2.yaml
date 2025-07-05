@@ -1,5 +1,5 @@
 ---
-name: asible1
+name: asible2
 pack: sre_asible2_automation
 description: quick check on ansible ping
 runner_type: orquesta
