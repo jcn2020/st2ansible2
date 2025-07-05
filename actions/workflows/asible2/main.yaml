@@ -19,7 +19,7 @@ tasks:
   write_private_key:
     action: core.local
     input:
-      cmd: |>
+      cmd: |-
         echo "current pwd"
         pwd 
         echo "ls -altr" 
