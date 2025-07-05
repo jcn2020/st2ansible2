@@ -20,7 +20,7 @@ tasks:
     action: core.local
     input:
       cmd: |-
-        sudo cat <% ctx().datastore_key > /tmp/my_private_key 
+        sudo cat <% ctx().datastore_key %> /tmp/my_private_key 
 
     next:
       - when: <% succeeded() %>
