@@ -17,8 +17,8 @@ tasks:
   chmod_key:
     action: core.local
     input:
-      cmd: >- 
-        chmod 0400 <% ctx().private_keypath %>
+      cmd: >-
+        sudo chmod 0400 <% ctx().private_keypath %>
     next:
       - when: <% succeeded() %>
         do:
