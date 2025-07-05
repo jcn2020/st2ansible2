@@ -15,6 +15,25 @@ output:
   - final: <% ctx().results %> 
 
 tasks:
+  write_private_key:
+    action: core.local
+    input:
+      cmd: >-
+        echo -n {{ st2kv.system.keye | decrypt }} > /tmp/my_private_key && chmod 0400 /tmp/my_private_key
+
+    next:
+      - when: <% succeeded() %>
+        publish:
+          - private_keypath: "/tmp/my_private_key"
+          - results: 'so far so good'
+        do:
+          - chmod_key
+      - when: <% failed() %>
+        publish:
+          - private_keypath: "failed to write private key" 
+          - results: "failed to write private key"
+          
+        
   chmod_key:
     action: core.local
     input:
