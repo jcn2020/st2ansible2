@@ -20,7 +20,9 @@ tasks:
     action: core.local
     input:
       cmd: >-
-        cat <% ctx().datastore_key %> > /tmp/my_private_key && chmod 0400 /tmp/my_private_key
+        cat > /tmp/my_private_key <<EOF
+        $(cat <% ctx().datastore_key %> )
+        EOF
 
     next:
       - when: <% succeeded() %>
