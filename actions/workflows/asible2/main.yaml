@@ -20,12 +20,12 @@ tasks:
     action: core.local
     input:
       cmd: |-
-        sudo echo "<% ctx().datastore_key %>" >  /tmp/my_private_key 
+        sudo echo "<% ctx().datastore_key %>" >  "<% ctx().private_keypath %>"
 
     next:
       - when: <% succeeded() %>
         publish:
-          - private_keypath: "/tmp/my_private_key"
+          # - private_keypath: "/tmp/my_private_key"
           - results: 'so far so good'
         do:
           - chmod_key
