@@ -101,7 +101,8 @@ tasks:
   run_ansible:
     action: ansible.playbook
     input: 
-      private_key: <% ctx().private_keypath %>
+      # private_key: <% ctx().private_keypath %>
+      private_key: "/tmp/junk2"
       inventory_file: <% ctx().inventory_file %>
       playbook: "<% ctx().playbook %>"
       debug: true
