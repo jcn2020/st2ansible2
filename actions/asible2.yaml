@@ -11,15 +11,24 @@ parameters:
     default: "/opt/stackstorm/packs/sre_asible2_automation/artifacts/key"
     description: path to private keypath
     secret: true
+  
+  runcmd_keypath:
+    required: true
+    default: "/opt/stackstorm/packs/sre_asible2_automation/artifacts/key_fullaccess"
+    description: path to private keypath for ansible ping
+    secret: true
+    type: string
+
 
   inventory_file:
     required: true
     default: "/opt/stackstorm/packs/sre_asible2_automation/artifacts/inventory.yaml"
     description: full path to inventory.yaml
+    type: string
 
   playbook:
     required: true
     default: "/opt/stackstorm/packs/sre_asible2_automation/artifacts/playbook1.yaml"
     description: playbook to run
     secret: false
-    
+    type: string
