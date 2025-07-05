@@ -32,7 +32,7 @@ tasks:
   run_cmd:
     action: core.local
     input:
-      cmd: "ansible myhosts -m ping -i <% ctx().inventory_file %> -e private_key=<% ctx().runcmd_keypath %>"
+      cmd: "ansible myhosts -m ping -i <% ctx().inventory_file %> -e ansible_ssh_private_key_file=<% ctx().runcmd_keypath %>"
       # cmd: "/opt/stackstorm/virtualenvs/ansible/bin/ansible-playbook --private-key=/opt/stackstorm/packs/sre_asible_automation/artifacts/key --inventory-file=/opt/stackstorm/packs/sre_asible_automation/artifacts/inventory.yaml --become /opt/stackstorm/packs/sre_ansible_automation/artifacts/playbook1.yaml" 
       # cmd: "pwd && cd /opt/stackstorm/packs/sre_ansible_automation/artifacts && ls -altr"
       # cmd: "echo 'hello'"
