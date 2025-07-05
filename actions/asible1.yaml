@@ -1,25 +1,25 @@
 ---
 name: asible1
-pack: sre_asible_automation
+pack: sre_asible2_automation
 description: quick check on ansible ping
 runner_type: orquesta
-entry_point: workflows/asible1/main.yaml
+entry_point: workflows/asible2/main.yaml
 enabled: true
 parameters:
   private_keypath:
     required: true
-    default: "/opt/stackstorm/packs/sre_asible_automation/artifacts/key"
+    default: "/opt/stackstorm/packs/sre_asible2_automation/artifacts/key"
     description: path to private keypath
     secret: true
 
   inventory_file:
     required: true
-    default: "/opt/stackstorm/packs/sre_asible_automation/artifacts/inventory.yaml"
+    default: "/opt/stackstorm/packs/sre_asible2_automation/artifacts/inventory.yaml"
     description: full path to inventory.yaml
 
   playbook:
     required: true
-    default: "/opt/stackstorm/packs/sre_asible_automation/artifacts/playbook1.yaml"
+    default: "/opt/stackstorm/packs/sre_asible2_automation/artifacts/playbook1.yaml"
     description: playbook to run
     secret: false
     

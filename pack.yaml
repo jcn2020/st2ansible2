@@ -1,7 +1,7 @@
 ---
-ref: sre_asible_automation
-name: sre_asible_automation
-description: sre_asible_automation
+ref: sre_asible2_automation
+name: sre_asible2_automation
+description: sre_asible2_automation
 
 keywords:
   - "sres"
