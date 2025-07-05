@@ -33,10 +33,9 @@ tasks:
         echo "ls -altr /opt/stackstorm/packs/sre_asible2_automation"
         ls -altr /opt/stackstorm/packs/sre_asible2_automation
         echo "ls -altr /tmp here"
-        # sudo echo "<% ctx().datastore_key %>" >  /tmp/junk2
-        cat /tmp/junk2  
         diff /tmp/junk3 /tmp/junk2
         diff /tmp/junk4 /tmp/junk2
+        cat /tmp/junk2
          
 
     next:
