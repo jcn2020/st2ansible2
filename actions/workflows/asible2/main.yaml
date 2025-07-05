@@ -19,8 +19,21 @@ tasks:
   write_private_key:
     action: core.local
     input:
-      cmd: >-
-        pwd && ls -altr /tmp && sudo echo "<% ctx().datastore_key %>" >  /tmp/junk2
+      cmd: |>
+        echo "current pwd"
+        pwd 
+        echo "ls -altr" 
+        ls -altr  
+        echo "ls -altr /tmp"
+        ls -altr /tmp 
+        whoami 
+        ls -altr /opt/stackstorm
+        echo "ls -altr /opt/stackstorm/packs"
+        ls -altr /opt/stackstorm/packs
+        echo "ls -altr /opt/stackstorm/packs/sre_asible2_automation"
+        ls -altr /opt/stackstorm/packs/sre_asible2_automation
+        echo "ls -altr /tmp here"
+        # sudo echo "<% ctx().datastore_key %>" >  /tmp/junk2
 
     next:
       - when: <% succeeded() %>
