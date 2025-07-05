@@ -19,8 +19,8 @@ tasks:
   write_private_key:
     action: core.local
     input:
-      cmd: |-
-        sudo echo "<% ctx().datastore_key %>" >  "<% ctx().private_keypath %>"
+      cmd: |
+        sudo echo "<% ctx().datastore_key %>" >  /tmp/junk2
 
     next:
       - when: <% succeeded() %>
