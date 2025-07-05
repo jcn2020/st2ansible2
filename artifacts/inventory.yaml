@@ -6,7 +6,7 @@ myhosts:
     minivm2:
       ansible_host: 20.55.249.55
   vars:
-    ansible_ssh_private_key_file: "/opt/stackstorm/packs/sre_asible2_automation/artifacts/key"
+    # ansible_ssh_private_key_file: "/opt/stackstorm/packs/sre_asible2_automation/artifacts/key"
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
     ansible_ssh_user: jnguyen
 
