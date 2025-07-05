@@ -14,6 +14,20 @@ output:
   - final: <% ctx().results %> 
 
 tasks:
+  chmod_key:
+    action: core.local
+    input:
+      cmd: >- 
+        chmod 0400 <% ctx().private_keypath %>
+    next:
+      - when: <% succeeded() %>
+        do:
+          - run_cmd
+          - run_ansible
+      - when: <% failed() %>
+        publish:
+          - results: "chmod failed"
+
   run_cmd:
     action: core.local
     input:
@@ -62,5 +76,5 @@ tasks:
           - results: "<% task(run_ansible).result %>"
       - when: <% failed() %>
         publish: 
-          - results: "Task failed, no output available" 
+          - results: "Task failed, no output available"
 
