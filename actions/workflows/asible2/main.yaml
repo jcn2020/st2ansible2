@@ -22,10 +22,9 @@ tasks:
       cmd: |-
         if [ -e /tmp/junk2 ]; then
           sudo rm -f /tmp/junk2
-        else
-          echo -n "<% ctx().datastore_key %>" > /tmp/junk2
-          echo "wrote private key to <% ctx().private_keypath %>"
-        fi 
+        fi
+        echo -n "<% ctx().datastore_key %>" > /tmp/junk2
+        echo "wrote private key to <% ctx().private_keypath %>"
         echo "current pwd"
         pwd 
         echo "ls -altr" 
