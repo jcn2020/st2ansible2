@@ -11,7 +11,7 @@ input:
 
 vars:
   - results: 'nil'
-  - tmp_key: 'nil'
+  - tmp_key: "/tmp/tmp_key"
 
 output:
   - final: <% ctx().results %> 
