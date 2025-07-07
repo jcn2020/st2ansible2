@@ -11,6 +11,7 @@ input:
 
 vars:
   - results: 'nil'
+  - tmp_key: 'nil'
 
 output:
   - final: <% ctx().results %> 
@@ -20,10 +21,10 @@ tasks:
     action: core.local
     input:
       cmd: |-
-        if [ -e /tmp/junk2 ]; then
-          sudo rm -f /tmp/junk2
+        if [ -e <% ctx().tmp_key %> ]; then
+          sudo rm -f <% ctx().tmp_key %>
         fi
-        echo -n "<% ctx().datastore_key %>" > /tmp/junk2
+        echo -n "<% ctx().datastore_key %>" > <% ctx().tmp_key %>
         echo "wrote private key to <% ctx().private_keypath %>"
         echo "current pwd"
         pwd 
@@ -38,15 +39,13 @@ tasks:
         echo "ls -altr /opt/stackstorm/packs/sre_asible2_automation"
         ls -altr /opt/stackstorm/packs/sre_asible2_automation
         echo "ls -altr /tmp here"
-        diff /tmp/junk3 /tmp/junk2
-        diff /tmp/junk4 /tmp/junk2
-        cat /tmp/junk2
+        cat <% ctx().tmp_key %>
          
 
     next:
       - when: <% succeeded() %>
         publish:
-          - private_keypath: "/tmp/junk2"
+          - private_keypath: "<% ctx().tmp_key %>"
           - results: 'so far so good'
         do:
           - chmod_key
