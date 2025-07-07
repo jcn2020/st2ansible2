@@ -3,8 +3,8 @@ version: 1.0
 description: quick demo of ansible
 
 input:
-  - private_keypath
-  - runcmd_keypath: "/opt/stackstorm/packs/sre_asible2_automation/artifacts/key_fullaccess"
+  - private_keypath: 'nil'
+#  - runcmd_keypath: "/opt/stackstorm/packs/sre_asible2_automation/artifacts/key_fullaccess"
   - inventory_file
   - playbook
   - datastore_key 

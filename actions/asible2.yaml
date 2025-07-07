@@ -8,17 +8,17 @@ enabled: true
 parameters:
   private_keypath:
     required: true
-    default: "/opt/stackstorm/packs/sre_asible2_automation/artifacts/key"
+    default: "/tmp/tmp_key"
     description: path to private keypath
     secret: true
-  
-  runcmd_keypath:
-    required: true
-    default: "/opt/stackstorm/packs/sre_asible2_automation/artifacts/key_fullaccess"
-    description: path to private keypath for ansible ping
-    secret: true
-    type: string
-
+#  
+#  runcmd_keypath:
+#    required: true
+#    default: "/opt/stackstorm/packs/sre_asible2_automation/artifacts/key_fullaccess"
+#    description: path to private keypath for ansible ping
+#    secret: true
+#    type: string
+#
 
   inventory_file:
     required: true
