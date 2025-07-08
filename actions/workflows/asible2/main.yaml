@@ -41,6 +41,7 @@ tasks:
           - results: 'so far so good'
         do:
           - chmod_key
+          - run_cmd
       - when: <% failed() %>
         publish:
           - private_keypath: "failed to write private key" 
@@ -59,7 +60,6 @@ tasks:
     next:
       - when: <% succeeded() %>
         do:
-          - run_cmd
           - run_ansible
       - when: <% failed() %>
         publish:
