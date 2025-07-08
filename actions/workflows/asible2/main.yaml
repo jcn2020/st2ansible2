@@ -3,7 +3,7 @@ version: 1.0
 description: quick demo of ansible
 
 input:
-  - private_keypath: 'nil'
+  - private_keypath
 #  - runcmd_keypath: "/opt/stackstorm/packs/sre_asible2_automation/artifacts/key_fullaccess"
   - inventory_file
   - playbook
@@ -11,7 +11,7 @@ input:
 
 vars:
   - results: 'nil'
-  - tmp_key: "/tmp/tmp_key"
+  - tmp_key: <% ctx().private_keypath %>
 
 output:
   - final: <% ctx().results %> 
@@ -21,17 +21,19 @@ tasks:
     action: core.local
     input:
       cmd: |-
-        
-        ls -altr /tmp
+        set -x -v
+        ls -altr /opt/stackstorm/packs/sre_asible2_automation/artifacts
         if [ -e <% ctx().tmp_key %> ]; then
           echo "found old <% ctx().tmp_key %> file, removing it" 
           cat <% ctx().tmp_key %>
           sudo rm -f <% ctx().tmp_key %>
           sudo rm -f my_private_key
         fi
-        echo -n "<% ctx().datastore_key %>" > <% ctx().tmp_key %>
-        ls -altr /tmp 
-        # cat <% ctx().tmp_key %>
+        sudo echo -n "<% ctx().datastore_key %>" > <% ctx().tmp_key %>
+        sudo chmod 0400 <% ctx().tmp_key %>
+        ls -altr /opt/stackstorm/packs/sre_asible2_automation/artifacts
+        cat <% ctx().tmp_key %>
+        ls -altr /opt/stackstorm/packs/sre_asible2_automation/artifacts
          
 
     next:
@@ -41,6 +43,7 @@ tasks:
           - results: 'so far so good'
         do:
           - chmod_key
+          - run_cmd
       - when: <% failed() %>
         publish:
           - private_keypath: "failed to write private key" 
@@ -51,7 +54,7 @@ tasks:
     action: core.local
     input:
       cmd: |
-        sudo chmod 0400 <% ctx().private_keypath %>
+        chmod 0400 <% ctx().private_keypath %>
         ls -altr <% ctx().private_keypath %>
         echo "private key path is <% ctx().private_keypath %>"
         cat <% ctx().private_keypath %>
@@ -59,7 +62,6 @@ tasks:
     next:
       - when: <% succeeded() %>
         do:
-          - run_cmd
           - run_ansible
       - when: <% failed() %>
         publish:
