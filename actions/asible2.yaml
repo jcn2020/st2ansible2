@@ -35,7 +35,7 @@ parameters:
 
   datastore_key:
     required: true
-    default: "{{ st2kv.system.keye | decrypt_kv }}"
+    default: "{{ st2kv.system.sreasiblekey | decrypt_kv }}"
     description: private key from datastore 
     secret: true
     type: string
