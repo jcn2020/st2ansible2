@@ -36,8 +36,7 @@ tasks:
         ls -altr /tmp
         echo "wrote private key to <% ctx().private_keypath %>"
         ls -altr /opt/stackstorm/packs/sre_asible2_automation
-        echo "ls -altr /opt/stackstorm/packs/sre_asible2_automation"
-        ls -altr /opt/stackstorm/packs/sre_asible2
+        echo "ls -altr /opt/stackstorm/packs/sre_asible2_automation/artifacts"
          
 
     next:
