@@ -27,20 +27,11 @@ tasks:
           echo "found old <% ctx().tmp_key %> file, removing it" 
           cat <% ctx().tmp_key %>
           sudo rm -f <% ctx().tmp_key %>
-          sudo rm -f /tmp/junk2 /tmp/junk3 /tmp/junk4
+          sudo rm -f my_private_key
         fi
         echo -n "<% ctx().datastore_key %>" > <% ctx().tmp_key %>
-        echo "wrote private key to <% ctx().private_keypath %>"
-        echo "current pwd"
-        pwd 
-        echo "ls -altr" 
-        ls -altr  
-        echo "ls -altr /tmp"
         ls -altr /tmp 
-        whoami 
-        echo "ls -altr /tmp here"
-        ls -altr /tmp
-        cat <% ctx().tmp_key %>
+        # cat <% ctx().tmp_key %>
          
 
     next:
