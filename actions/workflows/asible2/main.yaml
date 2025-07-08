@@ -11,7 +11,7 @@ input:
 
 vars:
   - results: 'nil'
-  - tmp_key: "/opt/stackstorm/packs/sre_asible2_automation/artifacts/tmp_key"
+  - tmp_key: "/opt/stackstorm/tmp_key"
 
 output:
   - final: <% ctx().results %> 
