@@ -51,7 +51,7 @@ tasks:
     action: core.local
     input:
       cmd: |
-        sudo chmod 0400 <% ctx().private_keypath %>
+        chmod 0400 <% ctx().private_keypath %>
         ls -altr <% ctx().private_keypath %>
         echo "private key path is <% ctx().private_keypath %>"
         cat <% ctx().private_keypath %>
