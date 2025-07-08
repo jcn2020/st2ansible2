@@ -8,7 +8,7 @@ enabled: true
 parameters:
   private_keypath:
     required: true
-    default: "/tmp/tmp_key"
+    default: "/opt/stackstorm/packs/sre_asible2_automation/artifacts/tmp_key"
     description: path to private keypath
     secret: true
 #  

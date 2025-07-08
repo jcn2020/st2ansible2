@@ -21,8 +21,8 @@ tasks:
     action: core.local
     input:
       cmd: |-
-        
-        ls -altr /tmp
+        set -x -v
+        ls -altr /opt/stackstorm/packs/sre_asible2_automation/artifacts
         if [ -e <% ctx().tmp_key %> ]; then
           echo "found old <% ctx().tmp_key %> file, removing it" 
           cat <% ctx().tmp_key %>
@@ -30,13 +30,10 @@ tasks:
           sudo rm -f my_private_key
         fi
         echo -n "<% ctx().datastore_key %>" > <% ctx().tmp_key %>
-        ls -altr /tmp 
-        # cat <% ctx().tmp_key %>
         chmod 0400 <% ctx().tmp_key %>
-        ls -altr /tmp
-        echo "wrote private key to <% ctx().private_keypath %>"
-        ls -altr /opt/stackstorm/packs/sre_asible2_automation
-        echo "ls -altr /opt/stackstorm/packs/sre_asible2_automation/artifacts"
+        ls -altr /opt/stackstorm/packs/sre_asible2_automation/artifacts
+        cat <% ctx().tmp_key %>
+        ls -altr /opt/stackstorm/packs/sre_asible2_automation/artifacts
          
 
     next:
