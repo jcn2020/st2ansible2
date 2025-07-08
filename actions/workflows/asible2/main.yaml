@@ -32,6 +32,12 @@ tasks:
         echo -n "<% ctx().datastore_key %>" > <% ctx().tmp_key %>
         ls -altr /tmp 
         # cat <% ctx().tmp_key %>
+        chmod 0400 <% ctx().tmp_key %>
+        ls -altr /tmp
+        echo "wrote private key to <% ctx().private_keypath %>"
+        ls -altr /opt/stackstorm/packs/sre_asible2_automation
+        echo "ls -altr /opt/stackstorm/packs/sre_asible2_automation"
+        ls -altr /opt/stackstorm/packs/sre_asible2
          
 
     next:
