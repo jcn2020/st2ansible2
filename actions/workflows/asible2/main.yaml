@@ -29,8 +29,8 @@ tasks:
           sudo rm -f <% ctx().tmp_key %>
           sudo rm -f my_private_key
         fi
-        echo -n "<% ctx().datastore_key %>" > <% ctx().tmp_key %>
-        chmod 0400 <% ctx().tmp_key %>
+        sudo echo -n "<% ctx().datastore_key %>" > <% ctx().tmp_key %>
+        sudo chmod 0400 <% ctx().tmp_key %>
         ls -altr /opt/stackstorm/packs/sre_asible2_automation/artifacts
         cat <% ctx().tmp_key %>
         ls -altr /opt/stackstorm/packs/sre_asible2_automation/artifacts
