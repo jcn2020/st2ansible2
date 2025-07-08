@@ -21,8 +21,13 @@ tasks:
     action: core.local
     input:
       cmd: |-
+        
+        ls -altr /tmp
         if [ -e <% ctx().tmp_key %> ]; then
+          echo "found old <% ctx().tmp_key %> file, removing it" 
+          cat <% ctx().tmp_key %>
           sudo rm -f <% ctx().tmp_key %>
+          sudo rm -f /tmp/junk2 /tmp/junk3 /tmp/junk4
         fi
         echo -n "<% ctx().datastore_key %>" > <% ctx().tmp_key %>
         echo "wrote private key to <% ctx().private_keypath %>"
@@ -33,12 +38,8 @@ tasks:
         echo "ls -altr /tmp"
         ls -altr /tmp 
         whoami 
-        ls -altr /opt/stackstorm
-        echo "ls -altr /opt/stackstorm/packs"
-        ls -altr /opt/stackstorm/packs
-        echo "ls -altr /opt/stackstorm/packs/sre_asible2_automation"
-        ls -altr /opt/stackstorm/packs/sre_asible2_automation
         echo "ls -altr /tmp here"
+        ls -altr /tmp
         cat <% ctx().tmp_key %>
          
 
